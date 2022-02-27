@@ -25,3 +25,4 @@ Route::post('/login', 'App\Http\Controllers\Api\AuthController@login')->name("lo
 // });
 Route::middleware('auth:sanctum')->get('/users', 'App\Http\Controllers\Api\UserController@index');
 // Route::get('/users', 'App\Http\Controllers\Api\UserController@index');
+Route::post('uploadVideo', 'App\Http\Controllers\VideoController@uploadVideo');
