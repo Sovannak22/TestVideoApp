@@ -69,10 +69,7 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-        'api' => [
-            'driver' => 'passport',
-            'provider' => 'users',
-        ],
+    
     ],
 
     /*

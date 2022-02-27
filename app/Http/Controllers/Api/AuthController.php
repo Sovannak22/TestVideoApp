@@ -11,24 +11,17 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $loginData = $request->validate([
-            'phone_number' => 'required',
-            'password' => 'required'
-        ]);
-        $user = User::where('phone_number', $request->phone_number)->first();
-        if ($user) {
-            if (Hash::check($request->password, $user->password)) {
-                $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-                $response = ['token' => $token['token'], 'user' => $user];
-                return response($response, 200);
-            } else {
-                $response = ["message" => "Password mismatch"];
-                return response($response, 422);
-            }
+        $data = [
+            'phone_number' => $request->phone_number,
+            'password' => $request->password
+        ];
+  
+        if (auth()->attempt($data)) {
+            $token = auth()->user()->createToken('Laravel-9-Passport-Auth')->plainTextToken;
+            
+            return response()->json(['token' => $token], 200);
         } else {
-            $response = ["message" =>'User does not exist'];
-            return response($response, 422);
+            return response()->json(['error' => 'Unauthorised'], 401);
         }
-
     }
 }
