@@ -57,6 +57,7 @@
           phone: '',
           password: '',
         },
+        show: true
       }
     },
     methods: {
