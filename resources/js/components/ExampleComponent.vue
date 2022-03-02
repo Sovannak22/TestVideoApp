@@ -2,8 +2,8 @@
     <b-container>
         <div>
             <b-row class="vh-100" align-v="center">
-                <b-col cols="4"></b-col>
-                <b-col cols="4" class="bg-login-form p-5">
+                <b-col md="4" sm="0" lg="4"></b-col>
+                <b-col md="4" sm="12" lg="4" class="bg-login-form p-5">
                     
                     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                         <b-form-group
@@ -35,7 +35,7 @@
                         </div>
                     </b-form>
                 </b-col>
-                <b-col cols="4"></b-col>
+                <b-col md="4" sm="0" lg="4"></b-col>
             </b-row>
         </div>
     </b-container>
